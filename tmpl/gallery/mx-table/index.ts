@@ -73,30 +73,60 @@ export default Magix.View.extend({
     assign() {
         this['@{set.left}'] = 0;
         this['@{set.right}'] = 0;
+        this['@{stop.timer}']();
         this['@{teardown.scroll.listen}']();
         return true;
     },
+    '@{stop.timer}'() {
+        clearTimeout(this['@{scroll.timer}']);
+    },
+    '@{start.timer}'() {
+        this['@{scroll.timer}'] = setTimeout(this.wrapAsync(() => {
+            this['@{scroll.type}'] = 0;
+        }), 50);
+    },
     '@{setup.scroll.listen}'(head, body, bar) {
-        let me = this;
+        let me = this, left = 0;
         head.onscroll = () => {
-            body.scrollLeft = head.scrollLeft;
-            if (bar) {
-                bar.scrollLeft = head.scrollLeft;
+            if (!me['@{scroll.type}'] ||
+                me['@{scroll.type}'] == 'h') {
+                me['@{stop.timer}']();
+                me['@{scroll.type}'] = 'h';
+                left = head.scrollLeft;
+                body.scrollLeft = left;
+                if (bar) {
+                    bar.scrollLeft = left;
+                }
+                me['@{sync.state}']();
+                me['@{start.timer}']();
             }
-            me['@{sync.state}']();
         };
         body.onscroll = () => {
-            head.scrollLeft = body.scrollLeft;
-            if (bar) {
-                bar.scrollLeft = head.scrollLeft;
+            if (!me['@{scroll.type}'] ||
+                me['@{scroll.type}'] == 'b') {
+                me['@{stop.timer}']();
+                me['@{scroll.type}'] = 'b';
+                left = body.scrollLeft;
+                head.scrollLeft = left;
+                if (bar) {
+                    bar.scrollLeft = left;
+                }
+                me['@{sync.state}']();
+                me['@{start.timer}']();
             }
-            me['@{sync.state}']();
         };
         if (bar) {
             bar.onscroll = () => {
-                head.scrollLeft = bar.scrollLeft;
-                body.scrollLeft = bar.scrollLeft;
-                me['@{sync.state}']();
+                if (!me['@{scroll.type}'] ||
+                    me['@{scroll.type}'] == 'a') {
+                    me['@{stop.timer}']();
+                    me['@{scroll.type}'] = 'a';
+                    left = bar.scrollLeft;
+                    head.scrollLeft = left;
+                    body.scrollLeft = left;
+                    me['@{sync.state}']();
+                    me['@{start.timer}']();
+                }
             };
             me['@{scroll.bar}'] = bar;
         }
@@ -254,6 +284,9 @@ export default Magix.View.extend({
     render() {
         let me = this;
         let node = Magix.node(me.id);
+        if (navigator.userAgent.indexOf('Firefox') > -1) {
+            node.classList.add('@scoped.style:mx-tb-bs-ff');
+        }
         let nowWidth = node.clientWidth;
         let nodes = node.childNodes;
         let head, body, foot, bar;
