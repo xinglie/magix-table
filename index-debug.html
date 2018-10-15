@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Magix Table</title>
+        <script src="https://g.alicdn.com/mm/zs_gallery/1.1.79/highlight.min.js"></script>
+        <link rel="stylesheet" href="https://g.alicdn.com/mm/zs_gallery/1.1.79/highlight.min.css">
+    </head>
+    <body>
+        <div id="app">
+            <div id="pb" style="background:#e6e6e6;position:fixed;left:50%;top:50%;width:300px;margin:-20px 0 0 -150px;height:2px;">
+                <div style="width:0%;background:#4d7fff;height:100%;transition:all 0.3s;margin-bottom:-2px;"></div>
+            </div>
+        </div>
+        <script>
+        !function(t,e,n,a){n=0,t=setInterval(function(){e=document.getElementById("pb"),e?(a=.2*Math.random(),n+a<.9&&(n+=a,e=e.getElementsByTagName("div")[0],e.style.width=Math.round(100*n)+"%")):clearInterval(t)},200)}();
+        </script>
+        <script id="boot" type="text/javascript" src="src/table.js"></script>
+    </body>
+</html>

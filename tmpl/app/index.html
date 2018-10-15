@@ -1,0 +1,392 @@
+<div style="padding:50px;">
+    <h3>普通表格</h3>
+    <div class="desc">
+        如果您喜欢，也可以使用把它当成普通表格使用
+    </div>
+    <mx-table class="ex" style="width:500px;">
+        <mx-table.head>
+            <mx-table.row>
+                <mx-table.cell>A</mx-table.cell>
+                <mx-table.cell>B</mx-table.cell>
+                <mx-table.cell>C</mx-table.cell>
+            </mx-table.row>
+        </mx-table.head>
+        <mx-table.body>
+            <mx-table.row>
+                <mx-table.cell>1</mx-table.cell>
+                <mx-table.cell>2</mx-table.cell>
+                <mx-table.cell>3</mx-table.cell>
+            </mx-table.row>
+            <mx-table.row>
+                <mx-table.cell>4</mx-table.cell>
+                <mx-table.cell>5</mx-table.cell>
+                <mx-table.cell>6</mx-table.cell>
+            </mx-table.row>
+        </mx-table.body>
+    </mx-table>
+    <div class="code">
+        <div class="title" mx-click="toggle({index:1})">{{if show1}}隐藏{{else}}显示{{/if}}代码</div>
+            <div style="{{if !show1}}display:none{{/if}}">
+                <pre class="html mt30">
+&lt;mx-table style="width:500px;"&gt;
+    &lt;mx-table.head&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;A&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;B&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;C&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+    &lt;/mx-table.head&gt;
+    &lt;mx-table.body&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;1&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;2&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;3&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;4&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;5&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;6&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+    &lt;/mx-table.body&gt;
+&lt;/mx-table&gt;
+            </pre>
+        </div>
+    </div>
+    <h3 class="mt60">普通表格</h3>
+    <div class="desc">
+        去掉宽度则自适应容器宽度
+    </div>
+    <mx-table class="ex">
+        <mx-table.head fixed-top>
+            <mx-table.row>
+                <mx-table.cell>A</mx-table.cell>
+                <mx-table.cell>B</mx-table.cell>
+                <mx-table.cell>C</mx-table.cell>
+            </mx-table.row>
+        </mx-table.head>
+        <mx-table.body>
+            <mx-table.row>
+                <mx-table.cell>1</mx-table.cell>
+                <mx-table.cell>2</mx-table.cell>
+                <mx-table.cell>3</mx-table.cell>
+            </mx-table.row>
+            <mx-table.row>
+                <mx-table.cell>4</mx-table.cell>
+                <mx-table.cell>5</mx-table.cell>
+                <mx-table.cell>6</mx-table.cell>
+            </mx-table.row>
+        </mx-table.body>
+    </mx-table>
+    <div class="code">
+        <div class="title" mx-click="toggle({index:2})">{{if show1}}隐藏{{else}}显示{{/if}}代码</div>
+            <div style="{{if !show2}}display:none{{/if}}">
+                <pre class="html mt30">
+&lt;mx-table&gt;
+    &lt;mx-table.head fixed-top&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;A&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;B&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;C&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+    &lt;/mx-table.head&gt;
+    &lt;mx-table.body&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;1&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;2&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;3&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;4&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;5&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;6&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+    &lt;/mx-table.body&gt;
+&lt;/mx-table&gt;
+            </pre>
+        </div>
+    </div>
+    <h3　class="mt60">固定表头，列和表尾，表头，内容合并单元格</h3>
+    <div class="desc">该示例展示把表格限定在某个区域内，比较适用于弹框等较小面积的情况</div>
+    <mx-table class="mx-tb-scroller ex" style="width:900px;height:500px;overflow:auto;">
+        <mx-table.head fixed-top>
+            <mx-table.row>
+                <mx-table.cell fixed-left colspan="2"></mx-table.cell>
+                <mx-table.cell colspan="4" group>span c3-c6</mx-table.cell>
+                <mx-table.cell colspan="2" fixed-right></mx-table.cell>
+            </mx-table.row>
+            <mx-table.row>
+                <mx-table.cell fixed-left colspan="2" topspan="1" group>span c1-c2</mx-table.cell>
+                <mx-table.cell colspan="3" group>span c3-c5</mx-table.cell>
+                <mx-table.cell group>c6</mx-table.cell>
+                <mx-table.cell colspan="2" topspan="1" fixed-right group>span c7-c8</mx-table.cell>
+            </mx-table.row>
+            <mx-table.row>
+                <mx-table.cell width="80" fixed-left>c1</mx-table.cell>
+                <mx-table.cell width="80" fixed-left>c2</mx-table.cell>
+                <mx-table.cell width="380">c3</mx-table.cell>
+                <mx-table.cell width="450">c4</mx-table.cell>
+                <mx-table.cell width="380">c5</mx-table.cell>
+                <mx-table.cell width="450">c6</mx-table.cell>
+                <mx-table.cell width="100" fixed-right>c7</mx-table.cell>
+                <mx-table.cell width="100" fixed-right>c8</mx-table.cell>
+            </mx-table.row>
+        </mx-table.head>
+        <mx-table.body>
+            <mx-table.row>
+                <mx-table.cell fixed-left colspan="2">span 1-2</mx-table.cell>
+                <mx-table.cell colspan="2">span 3-4</mx-table.cell>
+                <mx-table.cell>5</mx-table.cell>
+                <mx-table.cell>6</mx-table.cell>
+                <mx-table.cell fixed-right colspan="2">span 7-8</mx-table.cell>
+            </mx-table.row>
+            {{for(let i=0;i<20;i++)}}
+            <mx-table.row>
+                <mx-table.cell fixed-left>r{{=i+1}} c1</mx-table.cell>
+                <mx-table.cell fixed-left>r{{=i+1}} c2</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c3</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c4</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c5</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c6</mx-table.cell>
+                <mx-table.cell fixed-right>r{{=i+1}} c7</mx-table.cell>
+                <mx-table.cell fixed-right>r{{=i+1}} c8</mx-table.cell>
+            </mx-table.row>
+        {{/for}}
+        </mx-table.body>
+        <mx-table.foot fixed-bottom>
+            <mx-table.cell>
+                这里可以放翻页之类的内容
+            </mx-table.cell>
+            <mx-table.scrollbar/>
+        </mx-table.foot>
+    </mx-table>
+    <div class="code">
+        <div class="title" mx-click="toggle({index:3})">{{if show3}}隐藏{{else}}显示{{/if}}代码</div>
+            <div style="{{if !show3}}display:none{{/if}}">
+                <pre class="html mt30">
+&lt;mx-table class="mx-tb-scroller" style="width:900px;height:500px;overflow:auto;"&gt;
+&lt;mx-table.head fixed-top&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left colspan="2"&gt;&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="4" group&gt;span c3-c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="2" fixed-right&gt;&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left colspan="2" topspan="1" group&gt;span c1-c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="3" group&gt;span c3-c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell group&gt;c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="2" topspan="1" fixed-right group&gt;span c7-c8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell width="80" fixed-left&gt;c1&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="80" fixed-left&gt;c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="380"&gt;c3&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="450"&gt;c4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="380"&gt;c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="450"&gt;c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="100" fixed-right&gt;c7&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="100" fixed-right&gt;c8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+&lt;/mx-table.head&gt;
+&lt;mx-table.body&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left colspan="2"&gt;span 1-2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="2"&gt;span 3-4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right colspan="2"&gt;span 7-8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+    {{for(let i=0;i&lt;20;i++)}}
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c1&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c3&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c7&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+{{/for}}
+&lt;/mx-table.body&gt;
+&lt;mx-table.foot fixed-bottom&gt;
+    &lt;mx-table.cell&gt;
+        这里可以放翻页之类的内容
+    &lt;/mx-table.cell&gt;
+    &lt;mx-table.scrollbar/&gt;
+&lt;/mx-table.foot&gt;
+&lt;/mx-table&gt;
+            </pre>
+        </div>
+    </div>
+    <h3　class="mt60">表头，表尾，列固定自适应页面</h3>
+    <div class="desc">一些设计师并不喜欢页面里面有很多滚动条，像垂直滚动，最好一个页面只有一个滚动条，这样让用户只使用一个滚动条即可控制整个页面的查看。</div>
+    <mx-table class="ex">
+        <mx-table.head fixed-top>
+            <mx-table.row>
+                <mx-table.cell fixed-left colspan="2"></mx-table.cell>
+                <mx-table.cell colspan="4" group>span c3-c6</mx-table.cell>
+                <mx-table.cell colspan="2" fixed-right></mx-table.cell>
+            </mx-table.row>
+            <mx-table.row>
+                <mx-table.cell fixed-left colspan="2" topspan="1" group>span c1-c2</mx-table.cell>
+                <mx-table.cell colspan="3" group>span c3-c5</mx-table.cell>
+                <mx-table.cell group>c6</mx-table.cell>
+                <mx-table.cell colspan="2" topspan="1" fixed-right group>span c7-c8</mx-table.cell>
+            </mx-table.row>
+            <mx-table.row>
+                <mx-table.cell width="80" fixed-left>c1</mx-table.cell>
+                <mx-table.cell width="80" fixed-left>c2</mx-table.cell>
+                <mx-table.cell width="380">c3</mx-table.cell>
+                <mx-table.cell width="450">c4</mx-table.cell>
+                <mx-table.cell width="380">c5</mx-table.cell>
+                <mx-table.cell width="450">c6</mx-table.cell>
+                <mx-table.cell width="100" fixed-right>c7</mx-table.cell>
+                <mx-table.cell width="100" fixed-right>c8</mx-table.cell>
+            </mx-table.row>
+        </mx-table.head>
+        <mx-table.body>
+            <mx-table.row>
+                <mx-table.cell fixed-left colspan="2">span 1-2</mx-table.cell>
+                <mx-table.cell colspan="2">span 3-4</mx-table.cell>
+                <mx-table.cell>5</mx-table.cell>
+                <mx-table.cell>6</mx-table.cell>
+                <mx-table.cell fixed-right colspan="2">span 7-8</mx-table.cell>
+            </mx-table.row>
+            {{for(let i=0;i<20;i++)}}
+            <mx-table.row>
+                <mx-table.cell fixed-left>r{{=i+1}} c1</mx-table.cell>
+                <mx-table.cell fixed-left>r{{=i+1}} c2</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c3</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c4</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c5</mx-table.cell>
+                <mx-table.cell>r{{=i+1}} c6</mx-table.cell>
+                <mx-table.cell fixed-right>r{{=i+1}} c7</mx-table.cell>
+                <mx-table.cell fixed-right>r{{=i+1}} c8</mx-table.cell>
+            </mx-table.row>
+        {{/for}}
+        </mx-table.body>
+        <mx-table.foot fixed-bottom>
+            <mx-table.scrollbar/>
+            <mx-table.cell>
+                这里可以放翻页之类的内容
+            </mx-table.cell>
+        </mx-table.foot>
+    </mx-table>
+    <div class="code">
+        <div class="title" mx-click="toggle({index:3})">{{if show3}}隐藏{{else}}显示{{/if}}代码</div>
+            <div style="{{if !show3}}display:none{{/if}}">
+                <pre class="html mt30">
+&lt;mx-table&gt;
+&lt;mx-table.head fixed-top&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left colspan="2"&gt;&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="4" group&gt;span c3-c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="2" fixed-right&gt;&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left colspan="2" topspan="1" group&gt;span c1-c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="3" group&gt;span c3-c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell group&gt;c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="2" topspan="1" fixed-right group&gt;span c7-c8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell width="80" fixed-left&gt;c1&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="80" fixed-left&gt;c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="380"&gt;c3&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="450"&gt;c4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="380"&gt;c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="450"&gt;c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="100" fixed-right&gt;c7&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell width="100" fixed-right&gt;c8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+&lt;/mx-table.head&gt;
+&lt;mx-table.body&gt;
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left colspan="2"&gt;span 1-2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell colspan="2"&gt;span 3-4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right colspan="2"&gt;span 7-8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+    {{for(let i=0;i&lt;20;i++)}}
+    &lt;mx-table.row&gt;
+        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c1&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c3&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r{{=i+1}} c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c7&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c8&lt;/mx-table.cell&gt;
+    &lt;/mx-table.row&gt;
+{{/for}}
+&lt;/mx-table.body&gt;
+&lt;mx-table.foot fixed-bottom&gt;
+    &lt;mx-table.scrollbar/&gt;
+    &lt;mx-table.cell&gt;
+        这里可以放翻页之类的内容
+    &lt;/mx-table.cell&gt;
+&lt;/mx-table.foot&gt;
+&lt;/mx-table&gt;
+            </pre>
+        </div>
+    </div>
+
+    <h3　class="mt60">列宽百分比与固定值</h3>
+    <div class="desc">做自适应页面的时候，有些列定宽，有些列使用百分比自适应。您可以改变浏览器窗口大小来查看该示例的表现</div>
+    <mx-table class="ex" style="min-width:400px">
+        <mx-table.head>
+            <mx-table.row>
+                <mx-table.cell width="150">固定150px</mx-table.cell>
+                <mx-table.cell width="30%">30%</mx-table.cell>
+                <mx-table.cell>70%</mx-table.cell>
+                <mx-table.cell width="200">固定200px</mx-table.cell>
+            </mx-table.row>
+        </mx-table.head>
+        <mx-table.body>
+            <mx-table.row>
+                <mx-table.cell>1</mx-table.cell>
+                <mx-table.cell>2</mx-table.cell>
+                <mx-table.cell>3</mx-table.cell>
+                <mx-table.cell>4</mx-table.cell>
+            </mx-table.row>
+            <mx-table.row>
+                <mx-table.cell>7</mx-table.cell>
+                <mx-table.cell>5</mx-table.cell>
+                <mx-table.cell>6</mx-table.cell>
+                <mx-table.cell>8</mx-table.cell>
+            </mx-table.row>
+        </mx-table.body>
+    </mx-table>
+    <div class="code">
+        <div class="title" mx-click="toggle({index:4})">{{if show4}}隐藏{{else}}显示{{/if}}代码</div>
+            <div style="{{if !show4}}display:none{{/if}}">
+                <pre class="html mt30">
+&lt;mx-table class="ex" style="min-width:400px"&gt;
+    &lt;mx-table.head&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell width="150"&gt;固定150px&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell width="30%"&gt;30%&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;70%&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell width="200"&gt;固定200px&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+    &lt;/mx-table.head&gt;
+    &lt;mx-table.body&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;1&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;2&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;3&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;4&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+        &lt;mx-table.row&gt;
+            &lt;mx-table.cell&gt;7&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;5&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;6&lt;/mx-table.cell&gt;
+            &lt;mx-table.cell&gt;8&lt;/mx-table.cell&gt;
+        &lt;/mx-table.row&gt;
+    &lt;/mx-table.body&gt;
+&lt;/mx-table&gt;
+            </pre>
+        </div>
+    </div>
+</div>
