@@ -88,6 +88,7 @@ export default Magix.View.extend({
     '@{setup.scroll.listen}'(head, body, bar) {
         let me = this, left = 0;
         head.onscroll = () => {
+            console.log('head', me['@{scroll.type}']);
             if (!me['@{scroll.type}'] ||
                 me['@{scroll.type}'] == 'h') {
                 me['@{stop.timer}']();
@@ -144,6 +145,34 @@ export default Magix.View.extend({
         }
         if (bar) {
             bar.onscroll = null;
+        }
+    },
+    '@{toggle.bar}'(node, head, foot, bar) {
+        if (bar) {
+            let sh = head.offsetHeight - head.clientHeight;
+            let bh = bar.getElementsByClassName('@scoped.style:mx-tb-bar-ph')[0];
+            let unsupportClass = '@scoped.style:mx-tb-bs-unsupport';
+            let supportCustomBar = sh == 0;
+            if (supportCustomBar && bar.clientWidth < bh.clientWidth) {
+                bar.style.height = '1px';
+                sh = bar.offsetHeight - bar.clientHeight;
+                supportCustomBar = sh > 0;
+            }
+            if (!supportCustomBar &&
+                !node.classList.contains(unsupportClass)) {
+                node.classList.add(unsupportClass);
+                foot.style.marginTop = '-' + sh + 'px';
+                this['@{sb.height}'] = sh;
+            }
+            if (bar.clientWidth < bh.clientWidth) {
+                if (supportCustomBar) {
+                    bar.style.height = 'auto';
+                } else {
+                    bar.style.height = this['@{sb.height}'] + 'px';
+                }
+            } else {
+                bar.style.height = 0;
+            }
         }
     },
     '@{sync.state}'() {
@@ -284,9 +313,6 @@ export default Magix.View.extend({
     render() {
         let me = this;
         let node = Magix.node(me.id);
-        if (navigator.userAgent.indexOf('Firefox') > -1) {
-            node.classList.add('@scoped.style:mx-tb-bs-ff');
-        }
         let nowWidth = node.clientWidth;
         let nodes = node.childNodes;
         let head, body, foot, bar;
@@ -306,6 +332,7 @@ export default Magix.View.extend({
         this['@{setup.scroll.listen}'](head, body, bar);
         this['@{set.width}'](nowWidth, head, body, bar);
         this['@{sync.state}']();
+        this['@{toggle.bar}'](node, head, foot, bar);
     },
     '$win<resize>'() {
         this.render();
