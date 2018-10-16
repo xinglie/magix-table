@@ -14,7 +14,12 @@
             </div>
         </div>
         <script>
-        !function(t,e,n,a){n=0,t=setInterval(function(){e=document.getElementById("pb"),e?(a=.2*Math.random(),n+a<.9&&(n+=a,e=e.getElementsByTagName("div")[0],e.style.width=Math.round(100*n)+"%")):clearInterval(t)},200)}();
+        !function(t,ex,n,a){
+            n=0,
+            t=setInterval(function(){
+                ex=document.getElementById("pb"),
+                ex&&ex.nodeName=='div'?(a=.2*Math.random(),n+a<.9&&(n+=a,ex=ex.getElementsByTagName("div")[0],ex.style.width=Math.round(100*n)+"%")):clearInterval(t)
+            },200)}();
         </script>
         <script id="boot" type="text/javascript" src="src/table.js"></script>
     </body>
