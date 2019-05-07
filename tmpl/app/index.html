@@ -105,9 +105,9 @@
             </pre>
         </div>
     </div>
-    <h3　class="mt60">固定表头，列和表尾，表头，内容合并单元格</h3>
+    <h3 class="mt60">固定表头，列和表尾，表头，内容合并单元格</h3>
     <div class="desc">该示例展示把表格限定在某个区域内，比较适用于弹框等较小面积的情况</div>
-    <mx-table class="mx-tb-scroller ex" style="width:900px;height:500px;overflow:auto;">
+    <mx-table class="mx-tb-scroller ex" style="width:900px;height:500px;overflow:auto;-webkit-overflow-scrolling: touch;">
         <mx-table.head fixed-top>
             <mx-table.row>
                 <mx-table.cell fixed-left colspan="2"></mx-table.cell>
@@ -195,18 +195,18 @@
         &lt;mx-table.cell&gt;6&lt;/mx-table.cell&gt;
         &lt;mx-table.cell fixed-right colspan="2"&gt;span 7-8&lt;/mx-table.cell&gt;
     &lt;/mx-table.row&gt;
-    {{for(let i=0;i&lt;20;i++)}}
+    &#x7b;&#x7b;for(let i=0;i&lt;20;i++)&#x7d;&#x7d;
     &lt;mx-table.row&gt;
-        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c1&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c2&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c3&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c4&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c5&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c6&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c7&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c8&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-left&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c1&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-left&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c3&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c7&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c8&lt;/mx-table.cell&gt;
     &lt;/mx-table.row&gt;
-{{/for}}
+&#x7b;&#x7b;/for&#x7d;&#x7d;
 &lt;/mx-table.body&gt;
 &lt;mx-table.foot fixed-bottom&gt;
     &lt;mx-table.cell&gt;
@@ -218,7 +218,7 @@
             </pre>
         </div>
     </div>
-    <h3　class="mt60">表头，表尾，列固定自适应页面</h3>
+    <h3 class="mt60">表头，表尾，列固定自适应页面</h3>
     <div class="desc">一些设计师并不喜欢页面里面有很多滚动条，像垂直滚动，最好一个页面只有一个滚动条，这样让用户只使用一个滚动条即可控制整个页面的查看。</div>
     <mx-table class="ex">
         <mx-table.head fixed-top>
@@ -308,18 +308,18 @@
         &lt;mx-table.cell&gt;6&lt;/mx-table.cell&gt;
         &lt;mx-table.cell fixed-right colspan="2"&gt;span 7-8&lt;/mx-table.cell&gt;
     &lt;/mx-table.row&gt;
-    {{for(let i=0;i&lt;20;i++)}}
+    &#x7b;&#x7b;for(let i=0;i&lt;20;i++)&#x7d;&#x7d;
     &lt;mx-table.row&gt;
-        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c1&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell fixed-left&gt;r{{=i+1}} c2&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c3&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c4&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c5&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell&gt;r{{=i+1}} c6&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c7&lt;/mx-table.cell&gt;
-        &lt;mx-table.cell fixed-right&gt;r{{=i+1}} c8&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-left&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c1&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-left&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c2&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c3&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c4&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c5&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c6&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c7&lt;/mx-table.cell&gt;
+        &lt;mx-table.cell fixed-right&gt;r&#x7b;&#x7b;=i+1&#x7d;&#x7d; c8&lt;/mx-table.cell&gt;
     &lt;/mx-table.row&gt;
-{{/for}}
+&#x7b;&#x7b;/for&#x7d;&#x7d;
 &lt;/mx-table.body&gt;
 &lt;mx-table.foot fixed-bottom&gt;
     &lt;mx-table.scrollbar/&gt;
@@ -332,7 +332,7 @@
         </div>
     </div>
 
-    <h3　class="mt60">列宽百分比与固定值</h3>
+    <h3 class="mt60">列宽百分比与固定值</h3>
     <div class="desc">做自适应页面的时候，有些列定宽，有些列使用百分比自适应。您可以改变浏览器窗口大小来查看该示例的表现</div>
     <mx-table class="ex" style="min-width:400px">
         <mx-table.head>

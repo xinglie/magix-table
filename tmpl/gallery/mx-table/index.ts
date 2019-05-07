@@ -1,4 +1,4 @@
-import Magix from 'magix';
+import Magix from 'magix5';
 Magix.applyStyle('@index.less');
 let PReg = /^(\d+)(%|px)?$/;
 let ParseWidth = (percent: string) => {
@@ -81,9 +81,12 @@ export default Magix.View.extend({
         clearTimeout(this['@{scroll.timer}']);
     },
     '@{start.timer}'() {
-        this['@{scroll.timer}'] = setTimeout(this.wrapAsync(() => {
-            this['@{scroll.type}'] = 0;
-        }), 50);
+        let marker = this.getMarker();
+        this['@{scroll.timer}'] = setTimeout(() => {
+            if (marker()) {
+                this['@{scroll.type}'] = 0;
+            }
+        }, 50);
     },
     '@{setup.scroll.listen}'(head, body, bar) {
         let me = this, left = 0;
@@ -221,7 +224,7 @@ export default Magix.View.extend({
             if (row.nodeType == 1) {
                 let cells = row.childNodes;
                 let rCells = 0, index = 0,
-                    rows = {
+                    rInfo = {
                         row,
                         cells: []
                     };
@@ -234,10 +237,10 @@ export default Magix.View.extend({
                         }
                         rCells += colspan;
                         index++;
-                        rows.cells.push(cell);
+                        rInfo.cells.push(cell);
                     }
                 }
-                allCells.push(rows);
+                allCells.push(rInfo);
                 if (rCells > count) count = rCells;
             }
         }
@@ -281,7 +284,9 @@ export default Magix.View.extend({
                 for (let i = count, v; i--;) {
                     v = colWidths[i];
                     if (v !== undefined) {
-                        colWidths[i] = v / spec;
+                        if (!empty) {
+                            colWidths[i] = v / spec;
+                        }
                     } else {
                         colWidths[i] = dw;
                     }
@@ -312,7 +317,7 @@ export default Magix.View.extend({
     },
     render() {
         let me = this;
-        let node = Magix.node(me.id);
+        let node = me.root;//Magix.node(me.id);
         let nowWidth = node.clientWidth;
         let nodes = node.childNodes;
         let head, body, foot, bar;

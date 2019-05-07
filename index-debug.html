@@ -6,21 +6,10 @@
         <title>Magix Table</title>
         <script src="https://g.alicdn.com/mm/zs_gallery/1.1.79/highlight.min.js"></script>
         <link rel="stylesheet" href="https://g.alicdn.com/mm/zs_gallery/1.1.79/highlight.min.css">
+        <style>@keyframes load{0%{width:0}100%{width:98%}}.outer{background:#e6e6e6;position:fixed;left:50%;top:50%;width:300px;margin:-20px 0 0 -150px;height:2px;}.inner{width:0%;background:#4d7fff;height:100%;animation:load 3s forwards;margin-bottom:-2px;}</style>
     </head>
     <body>
-        <div id="app">
-            <div id="pb" style="background:#e6e6e6;position:fixed;left:50%;top:50%;width:300px;margin:-20px 0 0 -150px;height:2px;">
-                <div style="width:0%;background:#4d7fff;height:100%;transition:all 0.3s;margin-bottom:-2px;"></div>
-            </div>
-        </div>
-        <script>
-        !function(t,ex,n,a){
-            n=0,
-            t=setInterval(function(){
-                ex=document.getElementById("pb"),
-                ex&&ex.nodeName=='div'?(a=.2*Math.random(),n+a<.9&&(n+=a,ex=ex.getElementsByTagName("div")[0],ex.style.width=Math.round(100*n)+"%")):clearInterval(t)
-            },200)}();
-        </script>
+        <div id="app"><div class="outer"><div class="inner"></div></div></div>
         <script id="boot" type="text/javascript" src="src/table.js"></script>
     </body>
 </html>

@@ -1,5 +1,5 @@
 //#snippet;
-//#exclude(define,before)
+//#exclude=define,before;
 /**
  * Sea.js 2.2.3 | seajs.org/LICENSE.md
  */

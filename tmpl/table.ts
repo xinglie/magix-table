@@ -14,7 +14,7 @@ setTimeout(() => {
             gallery: Env.cdn + '/gallery'
         }
     });
-    seajs.use('magix', (Magix: Magix) => {
+    seajs.use('magix5', (Magix: Magix) => {
         Magix.applyStyle('@scoped.style');
         Magix.boot({
             defaultPath: '/index',

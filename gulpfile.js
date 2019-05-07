@@ -8,20 +8,14 @@ let del = require('del');
 let fs = require('fs');
 let ts = require('typescript');
 let concat = require('gulp-concat');
-let combineTool = require('../magix-combine/index');
+let combineTool = require('../magix-composer/index');
 
 combineTool.config({
     debug: true,
     commonFolder: tmplFolder,
     compiledFolder: srcFolder,
-    cssSelectorPrefix: 'p',
-    loaderType: 'cmd',
-    md5CssSelectorLen: 3,
-    //magixVframeHost:true,
-    addTmplViewsToDependencies: true,
-    magixUpdaterIncrement: true,
-    magixUpdaterQuick: true,
-    magixTmplFnInside: false,
+    projectName: 'mt-',
+    loaderType: 'cmd_es',
     galleries: {
         mxRoot: 'gallery/'
     },
@@ -32,7 +26,7 @@ combineTool.config({
         var str = ts.transpileModule(content, {
             compilerOptions: {
                 lib: ['es7'],
-                target: 'es3',
+                target: 'es6',
                 module: ts.ModuleKind.None
             }
         });
@@ -43,7 +37,7 @@ combineTool.config({
         var str = ts.transpileModule(content, {
             compilerOptions: {
                 lib: ['es7'],
-                target: 'es3',
+                target: 'es6',
                 module: ts.ModuleKind.None
             }
         });
@@ -76,7 +70,7 @@ gulp.task('watch', ['combine'], () => {
     });
 });
 
-var uglify = require('gulp-uglify');
+var uglify = require('../gulp-terser-scoped/index');
 gulp.task('cleanBuild', function () {
     return del(buildFolder);
 });
